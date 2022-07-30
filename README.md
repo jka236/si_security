@@ -4,6 +4,7 @@
 
 If it is your first time to run, use `./manage.sh build` command.
 <br>If you have built the image before, use `./manage.sh up` to start.
+<br>After the lab, kill the kali shell by entering `exit` and typing `./manage.sb stop` on your local machine to stop containers
 
 >./manage.sh build
 >- Build DVWA image with netcat and vim installation (Other packages can be added if necessary).
