@@ -13,7 +13,7 @@ If it is your first time to run, use `./manage.sh build` command.
 
 >./manage.sh up
 >- Start DVWA
->- Attach Kali linux which starts an interactive shell
+>- Start and attach Kali linux container which starts an interactive shell
 >- Localhost port 80 combined with DWVA
 
 >./manage.sh stop
