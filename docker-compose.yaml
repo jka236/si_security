@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dvwa:
+    image: dvwa
+    build: ./dvwa
+    ports:
+      - "80:80"
+  kali:
+    image: kali-linux
+    build: ./kali
+
+    
