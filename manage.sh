@@ -4,7 +4,7 @@ argument=$1
 KALI_ID=$(docker ps -aqf "name=kali-docker")
 DVWA_ID=$(docker ps -aqf "name=dvwa-docker")
 if [ $argument = "build" ]; then
-    echo "Building infrastructure. This might take up to 10 mins..."
+    echo "Building infrastructure. This might take up to 30 mins..."
     echo "Building and starting DVWA"
     docker build --no-cache -t dvwa-docker ./dvwa
     docker run --rm -it -d -p 80:80 --name dvwa-docker dvwa-docker
@@ -42,9 +42,6 @@ elif [ $argument = "stop" ]; then
         echo "DVWA is successfully stopped"
     fi
     
-elif [ $argument = "down" ]; then
-    echo "Deleting infrastructure..."
-    docker-compose down 
 else
-  echo "Unknown argumnet! Options: build, up, stop, down"
+  echo "Unknown argumnet! Options: build, up, stop"
 fi
