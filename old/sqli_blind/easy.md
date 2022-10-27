@@ -18,6 +18,7 @@ MariaDB is a fork from MySQL, Basic SQL syntax is the same
 
 1. Get DB name len
 `1' and length(database())=0#`
+`1' and length(version@@)=0#`
 
 3. Burp Repeater
 
