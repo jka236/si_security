@@ -9,23 +9,7 @@ SECURITY = "low"
 
 def get_db_version_len():
     '''Send a SQL attack and get the length of the db version'''
-    version_len = 0
-    # Loop until SQL command return True. Try untill 100. If not found, raise an error
-    while True:
-        version_len += 1
-        # base_url = 
-        # query =
-        # url = 
-        # cookies = 
-        # response = 
 
-        # Parse response HTML and check if it returned True        
-        html_doc = response.content.decode()
-        soup = BeautifulSoup(html_doc, 'html.parser')
-        # if soup.pre.text == 
-            return version_len
-        if version_len >= 100:
-            raise ValueError(f'Tried {version_len} time but table len not found')   
         
 def get_db_ver_char_ascii(digit):
     '''Send a SQL attack and get a char of the db version'''
